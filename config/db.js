@@ -1,12 +1,13 @@
-import mongoose from "mongoose";
+// const mongoose= require("mongoose")
+import mongoose from "mongoose"
+const database=async()=>{
+    try{
+        const conn =await mongoose.connect('mongodb+srv://mynewuser:number1234@cluster0.dzro3qd.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+        console.log(`connected to mongodb database`)
+    }catch(error){
+        console.log(`error in mongodb ${error}`)
 
-const database = async () => {
-    try {
-        const conn = await mongoose.connect('mongodb://mynewuser:number1234@cluster0-shard-00-00.dzro3qd.mongodb.net:27017,cluster0-shard-00-01.dzro3qd.mongodb.net:27017,cluster0-shard-00-02.dzro3qd.mongodb.net:27017/?ssl=true&replicaSet=atlas-xyz-shard-0&authSource=admin&retryWrites=true&w=majority');
-        console.log(`connected to mongodb database`);
-    } catch (error) {
-        console.log(`error in mongodb ${error}`);
     }
-};
+}
 
-export default database;
+export default database
